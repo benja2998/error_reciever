@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bug Report Server</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+        input, textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.4em;
+            margin-top: 0.3em;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Fira Code', monospace;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        label {
+            color: #ffffff;
+        }
+
+        input, textarea {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333333;
+        }
+
+        input[type="submit"] {
+            background-color: #6200ea;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3700b3;
+        }
+
+        select {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.4em;
+            margin-top: 0.3em;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333333;
+        }
+
+        select option {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #6200ea;
+        }
+
+        textarea {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333333;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6200ea;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #6200ea;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            border-color: #6200ea;
+        }
+
+        input[type="text"], input[type="email"] {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333333;
+        }
+
+        input[type="text"]:hover, input[type="email"]:hover {
+            border-color: #6200ea;
+        }
+
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1em;
+            }
+            input, textarea, select {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        input, textarea, select {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <form action="/api/report" method="POST">
+        <h1>Bug Report Form</h1>
+        <label for="name">Name: <input type="text" id="name" name="name" required></label>
+        <label for="email">Email: <input type="email" id="email" name="email" required></label>
+        <label for="software">Software:
+            <select id="software" name="software" required>
+                <option value="" disabled selected>Select software</option>
+                <option value="kali-in-batch">Kali in Batch</option>
+                <option value="peroxide-h">peroxide-h</option>
+                <option value="linux-on-batch-windows">Linux on Batch on Windows</option>
+            </select>
+        </label>
+        <label for="description">Description:
+            <textarea id="description" name="description" rows="5" required></textarea>
+        </label>
+        <input type="submit" value="Submit" style="margin-top:1em;">
+    </form>
+</body>
+</html>
