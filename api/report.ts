@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-const allowedSoftware = ['kali-in-batch', 'peroxide-h', 'linux-on-batch-windows']
+const allowedSoftware = ['kali-in-batch', 'peroxide-h', 'linux-on-batch-windows', 'batch-compiler']
 
 function sanitize(input: string) {
   return input.replace(/<[^>]*>/g, '').trim()
