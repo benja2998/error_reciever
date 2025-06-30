@@ -15,7 +15,11 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).send('Method Not Allowed')
   }
 
-  let { name, email, software, description } = req.body || {}
+  let { name, email, software, description, captcha } = req.body || {}
+
+  if (typeof captcha !== 'string' || captcha.trim() !== '8') {
+    return res.status(400).send('Failed CAPTCHA check')
+  }
 
   if (typeof name !== 'string' || typeof email !== 'string' || typeof software !== 'string' || typeof description !== 'string') {
     return res.status(400).send('Invalid input types')
